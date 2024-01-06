@@ -70,8 +70,12 @@
                 .then(data => {
                     if (data.results && data.results.length > 0) {
                         const coordinates = data.results[0].geometry;
-                        displayResult(`Latitude: ${coordinates.lat.toFixed(4)}, Longitude: ${coordinates.lng.toFixed(4)}`);
-                        forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lng}&appid=YOUR_OPENWEATHERMAP_API_KEY`;
+                        const currentWeatherDiv = document.getElementById('currentWeather');
+                        const searchedCityHeader = `<h2>Current Weather in ${city}</h2>`;
+                        const currentDate = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                        const currentDateHeader = `<h2>${currentDate}</h2>`;
+                        currentWeatherDiv.innerHTML = searchedCityHeader + currentDateHeader;
+                        forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lng}&appid=076067f2f14b4396bfea2f731b908dfe`;
                         getWeatherData(coordinates.lat, coordinates.lng);
                         addToSearchHistory(city);
                     } else {
