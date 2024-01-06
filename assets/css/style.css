@@ -1,0 +1,81 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input {
+    padding: 8px;
+    width: 200px;
+}
+
+button {
+    padding: 8px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#weatherInfo {
+    margin-bottom: 20px;
+}
+
+#weatherInfo h2 {
+    color: #333;
+}
+
+#weatherInfo p {
+    margin: 5px 0;
+}
+
+#searchHistory, #forecast {
+    margin-bottom: 20px;
+}
+
+#searchHistory h2, #forecast h2 {
+    color: #333;
+}
+
+#historyList, #forecastList {
+    list-style: none;
+    padding: 0;
+}
+
+#historyList a {
+    text-decoration: none;
+    color: #007BFF;
+    cursor: pointer;
+}
+
+#historyList a:hover {
+    text-decoration: underline;
+}
+
+#forecastList li {
+    margin: 5px 0;
+    color: #333;
+}
