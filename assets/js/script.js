@@ -5,7 +5,7 @@ document.getElementById('searchForm').addEventListener('submit', function (event
 });
 
 function getCityCoordinates(city) {
-    const apiKey = '076067f2f14b4396bfea2f731b908dfe'; // Replace with your actual OpenCage Geocoding API key
+    const apiKey = '076067f2f14b4396bfea2f731b908dfe'; 
     const apiUrl = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(city)}&key=${apiKey}`;
 
     fetch(apiUrl)
@@ -55,8 +55,11 @@ function displayWeatherInfo(weatherData) {
     const descriptionElement = document.getElementById('description');
 
     if (temperatureElement && humidityElement && windSpeedElement && descriptionElement) {
-        // Update GUI elements with weather information
-        temperatureElement.textContent = `${weatherData.main.temp} K`; // You can convert to Celsius or Fahrenheit as needed
+        // Convert temperature from Kelvin to Fahrenheit
+        const temperatureFahrenheit = (weatherData.main.temp - 273.15) * 9/5 + 32;
+
+        // Update elements with weather information
+        temperatureElement.textContent = `${temperatureFahrenheit.toFixed(2)} °F`;
         humidityElement.textContent = `${weatherData.main.humidity}%`;
         windSpeedElement.textContent = `${weatherData.wind.speed} m/s`;
         descriptionElement.textContent = weatherData.weather[0].description;
